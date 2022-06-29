@@ -4,10 +4,13 @@ import Counter from './components/Counter'
 import CounterArrow from './components/CounterArrow';
 import CounterHook from './components/CounterHook';
 import ParentName from './ParentChild/ParentName';
+import ParentComponent from './ParentChild/ParentComponent';
+import EmployeeList from './List/EmployeeList';
+import ChartItem from './List/ChartItem';
 function App() {
   return (
     <div>
-      <ParentName/>
+      <EmployeeList/>
     </div>
   );
 }
