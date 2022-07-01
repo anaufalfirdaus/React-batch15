@@ -16,7 +16,32 @@ export default function ChartItem() {
         const TotalQuantity = cart.reduce((sum,el)=> sum + el.qty,0)
         setTotalQty(TotalQuantity)
     })
-    
+    const Pengurangan = (id) => {
+        setCart(
+            [...cart.map(emp=>{
+                if (id === emp.prodId) {
+                    emp.qty = emp.qty - 1
+                    return emp
+                }
+                else{
+                    return emp
+                }
+            })]
+        )
+    }
+    const Penjumlahan = (id) => {
+        setCart(
+            [...cart.map(emp=>{
+                if (id === emp.prodId) {
+                    emp.qty = emp.qty + 1
+                    return emp
+                }
+                else{
+                    return emp
+                }
+            })]
+        )
+    }
   return (
     <div>
         <h2>List of Carts</h2>
@@ -37,8 +62,8 @@ export default function ChartItem() {
                             <td>{carts.salary}</td>
                             <td>{carts.qty * carts.salary}</td>
                             <td>
-                                <button>+</button>
-                                <button>-</button>
+                                <button onClick={()=>Penjumlahan(carts.prodId)}>+</button>
+                                <button onClick={()=>Pengurangan(carts.prodId)}>-</button>
                             </td>
                         </tr>
                     ))
