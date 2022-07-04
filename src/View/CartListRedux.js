@@ -6,7 +6,7 @@ import { doGetCart, doAddCart } from '../Redux/Action/index'
 
 export default function CartListRedux() {
 
-    const dispatch = useDispatch
+    const dispatch = useDispatch();
     const carts = useSelector(state => state.carts)
     const category = useSelector(state => state.category)
     const totalHarga = useSelector(state => state.totalHarga)
