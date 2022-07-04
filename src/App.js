@@ -9,10 +9,11 @@ import EmployeeList from './List/EmployeeList';
 import ChartItem from './List/ChartItem';
 import EmployeeForm from './form/EmployeeForm';
 import ChartList from './form/ChartList';
+import CartList from './View/CartListRedux'
 function App() {
   return (
     <div>
-      <ChartList/>
+      <CartList/>
     </div>
   );
 }
