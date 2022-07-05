@@ -10,10 +10,11 @@ import ChartItem from './List/ChartItem';
 import EmployeeForm from './form/EmployeeForm';
 import ChartList from './form/ChartList';
 import CartList from './View/CartListRedux'
+import CartToolkit from './View/CartToolkit';
 function App() {
   return (
     <div>
-      <CartList/>
+      <CartToolkit/>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import {createStore} from 'redux'
+import {createStore} from '@reduxjs/toolkit'
 import cartReducer from '../Reducer/CartReducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
 

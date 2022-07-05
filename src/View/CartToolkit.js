@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ChartForm from '../form/ChartForm'
-import { doGetCart, doAddCart } from '../Redux/Action/index'
+import { doGetCart,doAddCart } from '../Toolkit/cartSlice'
 
-
-export default function CartListRedux() {
-
+export default function CartToolkit() {
     const dispatch = useDispatch();
-    const carts = useSelector(state => state.carts)
-    const category = useSelector(state => state.category)
-    const totalHarga = useSelector(state => state.totalHarga)
-    const totalQty = useSelector(state => state.totalQty)
+    const carts = useSelector(state => state.cartStore.carts)
+    const category = useSelector(state => state.cartStore.category)
+    const totalHarga = useSelector(state => state.cartStore.totalHarga)
+    const totalQty = useSelector(state => state.cartStore.totalQty)
 
-    const [display, setDisplay] = useState(false)
-    const [values, setValues] = useState({
-        prodName: undefined,
-        salary: 0,
-        qty: 0,
-        category: undefined
-    })  
+    const [display,setDisplay] = useState(false)
+    const [values,setValues] = useState ({
+        prodName : undefined,
+        salary : 0,
+        qty : 0,
+        category : undefined
+    }) 
 
     const handleOnChange = name => event => {
         setValues({ ...values, [name]: event.target.value })
@@ -36,8 +34,9 @@ export default function CartListRedux() {
         dispatch(doAddCart(payload))
         setDisplay(false)
     }
-    return (
-        <div>
+
+  return (
+    <div>
             <div>
                 <h2>List cartloyee</h2>
                 <button onClick={() => setDisplay(true)}> Add Product </button>
@@ -79,5 +78,5 @@ export default function CartListRedux() {
                 }
             </div>
         </div>
-    )
+  )
 }
