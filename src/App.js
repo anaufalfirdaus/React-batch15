@@ -11,10 +11,11 @@ import EmployeeForm from './form/EmployeeForm';
 import ChartList from './form/ChartList';
 import CartList from './View/CartListRedux'
 import CartToolkit from './View/CartToolkit';
+import RegionView from './ViewApi/RegionView';
 function App() {
   return (
     <div>
-      <CartToolkit/>
+      <RegionView/>
     </div>
   );
 }
