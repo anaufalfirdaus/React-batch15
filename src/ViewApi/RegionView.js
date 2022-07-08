@@ -66,7 +66,9 @@ export default function RegionView() {
                                             <tr key={reg.region_id}>
                                                 <td>{reg.region_id}</td>
                                                 <td>{reg.region_name}</td>
-                                                
+                                                <td>{reg && reg.countries.map(coun => (
+                                                    coun.country_name
+                                                ))}</td>
                                                 <button onClick={() => onDelete(reg.region_id)}> Delete Region </button>
                                             </tr>
                                         ))
