@@ -64,8 +64,6 @@ export default function RegionView() {
     return (
         <div>
             <div>
-                <h2>List Region</h2>
-                <button onClick={() => setDisplay(true)}> Add Region </button>
                 {
                     displayEdit
                         ?
@@ -84,6 +82,8 @@ export default function RegionView() {
                             />
                             :
                             <>
+                                <h2>List Region</h2>
+                                <button onClick={() => setDisplay(true)}> Add Region </button>
                                 <table>
                                     <th>Region ID</th>
                                     <th>Region Name</th>
