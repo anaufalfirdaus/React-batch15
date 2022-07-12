@@ -4,6 +4,7 @@ import { Outlet,Link } from 'react-router-dom'
 const navigation = [
     { name: 'Region', href: 'region', current: false },
     { name: 'Employee', href: 'employee', current: false },
+    { name: 'Baru', href: 'baru', current: false },
 ]
 
 export default function MainLayout() {

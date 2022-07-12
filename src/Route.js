@@ -1,7 +1,6 @@
 import React from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
-import DashboardLayout from './MainLayout/MainLayout'
-import ChartItem from './List/ChartItem'
+import DashboardLayout from './MainLayout/Dashboard'
 import RegionView from './ViewApi/RegionView'
 import EmployeeView from './ViewApi/EmployeeView'
 

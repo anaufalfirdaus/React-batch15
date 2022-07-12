@@ -29,7 +29,7 @@ export default function EmployeeView() {
     }
     return (
         <div>
-            <div>
+            <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                 {
                     displayEdit
                         ?
@@ -48,38 +48,38 @@ export default function EmployeeView() {
                             />
                             :
                             <>
-                                <h2>List employee</h2>
-                                <button onClick={() => setDisplay(true)}> Add Employee </button>
-                                <table>
-                                    <th>Employee ID</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Email</th>
-                                    <th>Phone Number</th>
-                                    <th>Hire Date</th>
-                                    <th>Job ID</th>
-                                    <th>Salary</th>
-                                    <th>Manager ID</th>
-                                    <th>Deprtment ID</th>
-                                    <th>Employee Profile</th>
-                                    <tbody>
+                                <button type="button" className="cursor-pointer inline-flex justify-center border py-2 px-2 border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onClick={() => setDisplay(true)}> Add Employee </button>
+                                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 table-auto ">
+                                    <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" className="px-6 py-3">Employee ID</th>
+                                            <th scope="col" className="px-6 py-3">First Name</th>
+                                            <th scope="col" className="px-6 py-3">Last Name</th>
+                                            <th scope="col" className="px-6 py-3">Email</th>
+                                            <th scope="col" className="px-6 py-3">Phone Number</th>
+                                            <th scope="col" className="px-6 py-3">Hire Date</th>
+                                            <th scope="col" className="px-6 py-3">Employee Profile</th>
+                                            <th scope="col" className="px-6 py-3">Setting</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="overscroll-auto md:overscroll-contain">
                                         {
                                             employee && employee.map(emp => {
                                                 return (
-                                                    <tr key={emp.employee_id}>
-                                                        <td>{emp.employee_id}</td>
-                                                        <td>{emp.first_name}</td>
-                                                        <td>{emp.last_name}</td>
-                                                        <td>{emp.email}</td>
-                                                        <td>{emp.phone_number}</td>
-                                                        <td>{emp.hire_date}</td>
-                                                        <td>{emp.job_id}</td>
-                                                        <td>{emp.salary}</td>
-                                                        <td>{emp.manager_id}</td>
-                                                        <td>{emp.department_id}</td>
-                                                        <td>{emp.emp_profile}</td>
-                                                        <button onClick={() => onDelete(emp.employee_id)}> Delete empion </button>
-                                                        <button onClick={() => onClick(emp.employee_id)}> Edit empion </button>
+                                                    <tr key={emp.employee_id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                        <td scope="row" className="px-6 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">{emp.employee_id}</td>
+                                                        <td className="px-6 py-2">{emp.first_name}</td>
+                                                        <td className="px-6 py-2">{emp.last_name}</td>
+                                                        <td className="px-6 py-2">{emp.email}</td>
+                                                        <td className="px-6 py-2">{emp.phone_number}</td>
+                                                        <td className="px-6 py-2">{emp.hire_date}</td>
+                                                        <td className="px-6 py-2">{emp.emp_profile}</td>
+                                                        <td className="px-6 py-2">
+                                                            <td className='py-2'>
+                                                                <button type="button" className="cursor-pointer inline-flex justify-center py-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onClick={() => onDelete(emp.employee_id)}>Delete</button>
+                                                            </td>
+                                                            <button type="button" className="cursor-pointer inline-flex justify-center py-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onClick={() => onClick(emp.employee_id)}>Edit</button>
+                                                        </td>
                                                     </tr>
                                                 )
                                             })

@@ -58,8 +58,9 @@ export default function EmployeeAdd(props) {
     return (
         <div>
             <div>
-                <label>First Name : </label>
+                <label class="block text-sm font-medium text-gray-700">First Name : </label>
                 <input
+                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     type="text"
                     name="first_name"
                     id="first_name"
@@ -70,8 +71,9 @@ export default function EmployeeAdd(props) {
                 />
             </div>
             <div>
-                <label>Last Name : </label>
+                <label class="block text-sm font-medium text-gray-700">Last Name : </label>
                 <input
+                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     type="text"
                     name="last_name"
                     id="last_name"
@@ -82,8 +84,9 @@ export default function EmployeeAdd(props) {
                 />
             </div>
             <div>
-                <label>Email : </label>
+                <label class="block text-sm font-medium text-gray-700">Email : </label>
                 <input
+                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     type="text"
                     name="email"
                     id="email"
@@ -94,8 +97,9 @@ export default function EmployeeAdd(props) {
                 />
             </div>
             <div>
-                <label>Phone Number : </label>
+                <label class="block text-sm font-medium text-gray-700">Phone Number : </label>
                 <input
+                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     type="text"
                     name="phone_number"
                     id="phone_number"
@@ -106,8 +110,9 @@ export default function EmployeeAdd(props) {
                 />
             </div>
             <div>
-                <label>Job ID : </label>
+                <label class="block text-sm font-medium text-gray-700">Job ID : </label>
                 <input
+                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     type="text"
                     name="job_id"
                     id="job_id"
@@ -118,8 +123,9 @@ export default function EmployeeAdd(props) {
                 />
             </div>
             <div>
-                <label>Salary : </label>
+                <label class="block text-sm font-medium text-gray-700">Salary : </label>
                 <input
+                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     type="text"
                     name="salary"
                     id="salary"
@@ -130,8 +136,9 @@ export default function EmployeeAdd(props) {
                 />
             </div>
             <div>
-                <label>Manager ID : </label>
+                <label class="block text-sm font-medium text-gray-700">Manager ID : </label>
                 <input
+                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     type="text"
                     name="manager_id"
                     id="manager_id"
@@ -142,8 +149,9 @@ export default function EmployeeAdd(props) {
                 />
             </div>
             <div>
-                <label>Department ID : </label>
+                <label class="block text-sm font-medium text-gray-700">Department ID : </label>
                 <input
+                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     type="text"
                     name="department_id"
                     id="department_id"
@@ -154,35 +162,39 @@ export default function EmployeeAdd(props) {
                 />
             </div>
             <div>
-                <label >Profile : </label>
+                <label class="block text-sm font-medium text-gray-700">Profile : </label>
                 <div>
                     <div>
-                        {
-                            uploaded === false ?
-                                <> </>
-                                :
-                                <>
-                                    <img src={previewImg} alt='image'/>
-                                    <span onClick={onClearImage}>Remove</span>
-                                </>
-                        }
-                        <div>
-                            <span>Upload a file</span>
-                            <input
-                                type="file"
-                                id="profile"
-                                accept='image/*'
-                                onChange={uploadOnChange('file')}
-                                className='sr-only'
-                            />
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div class="space-y-1 text-center">
+                                {
+                                    uploaded === false ?
+                                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        :
+                                        <>
+                                            <img src={previewImg} alt='image' />
+                                            <span class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500" onClick={onClearImage}>Remove</span>
+                                        </>
+                                }
+
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="profile" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                        <span>Upload a file</span>
+                                        <input id="profile" name="profile" type="file" accept='image/*' onChange={uploadOnChange('file')} class="sr-only" />
+                                    </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                            </div>
                         </div>
-                        <p>PNG, JPG, GIF up to 10MB</p>
                     </div>
                 </div>
             </div>
             <div>
-                <button type='submit' onClick={formik.handleSubmit}> Simpan </button>
-                <button onClick={() => props.setDisplay(false)}> Cancel </button>
+                <button type='submit' className="cursor-pointer inline-flex justify-center py-2 px-2 shadow-sm text-sm font-medium rounded-md text-indigo-500 hover:text-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onClick={formik.handleSubmit}> Simpan </button>
+                <button className="cursor-pointer inline-flex justify-center py-2 px-2 shadow-sm text-sm font-medium rounded-md text-indigo-500 hover:text-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onClick={() => props.setDisplay(false)}> Cancel </button>
             </div>
         </div>
     )

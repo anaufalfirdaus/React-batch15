@@ -9,6 +9,14 @@ const list = async()=>{
         return await error.message
     }
 }
+const image = async(id)=>{
+    try {
+        const result = await axios.get(`${config.domain}/employee/file/${id}`)
+        return result.data
+    } catch (error) {
+        return await error.message
+    }
+}
 const create = async(payload)=>{
     try {
         const result = await axios.post(`${config.domain}/employee/`,payload)
@@ -43,4 +51,4 @@ const deleted = async(id)=>{
     }
 }
 
-export default {list,create,deleted,findOne,update}
+export default {list,image,create,deleted,findOne,update}
