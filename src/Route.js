@@ -1,8 +1,8 @@
 import React from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
 import DashboardLayout from './MainLayout/Dashboard'
-import RegionView from './ViewApi/RegionView'
-import EmployeeView from './ViewApi/EmployeeView'
+import RegionView from './ViewSaga/Region'
+import EmployeeView from './ViewSaga/Employee'
 
 
 
