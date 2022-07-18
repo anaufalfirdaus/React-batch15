@@ -1,6 +1,8 @@
 import {call,put} from 'redux-saga/effects'
 import apiEmployee from '../../api/employeeApi'
-import { GetEmployeeSuccess,GetEmployeeFailed,AddEmployeeSuccess,AddEmployeeFailed,DelEmployeeSuccess,DelEmployeeFailed } from '../Action/EmployeeAction'
+import { GetEmployeeSuccess,GetEmployeeFailed,AddEmployeeSuccess,AddEmployeeFailed
+    ,DelEmployeeSuccess,DelEmployeeFailed,GetOneEmployeeSuccess,GetOneEmployeeFailed
+    ,EditEmployeeSuccess, EditEmployeeFailed,EditNoEmployeeSuccess,EditNoEmployeeFailed } from '../Action/EmployeeAction'
 
 function* handleGetEmployee(){
     try {
@@ -31,8 +33,40 @@ function* handleAddEmployee(action){
     }
 }
 
+function* handleGetOneEmployee(action){
+    const {payload} = action
+    try {
+        const result = yield call(apiEmployee.findOne,payload)
+        yield put(GetOneEmployeeSuccess(result))
+    } catch (error) {
+        yield put(GetOneEmployeeFailed(error))
+    }
+}
+
+function* handleEditEmployee(action){
+    const {payload} = action
+    try {
+        const result = yield call(apiEmployee.update, payload)
+        yield put (EditEmployeeSuccess(result.data[1]))
+    } catch (error) {
+        yield put (EditEmployeeFailed(error))
+    }
+}
+
+function* handleEditNoEmployee(action){
+    const {payload} = action
+    try {
+        const result = yield call(apiEmployee.updateNoFile, payload)
+        yield put (EditNoEmployeeSuccess(result.data[1]))
+    } catch (error) {
+        yield put (EditNoEmployeeFailed(error))
+    }
+}
 export {
     handleGetEmployee,
     handleDelEmployee,
-    handleAddEmployee
+    handleAddEmployee,
+    handleGetOneEmployee,
+    handleEditEmployee,
+    handleEditNoEmployee
 }

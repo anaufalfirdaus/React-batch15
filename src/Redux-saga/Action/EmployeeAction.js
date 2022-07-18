@@ -43,3 +43,48 @@ export const AddEmployeeFailed = (payload) =>({
     type : ActionType.ADD_EMPLOYEE_FAILED,
     payload
 })
+
+export const GetOneEmployeeRequest = (payload) => ({
+    type : ActionType.GETONE_EMPLOYEE_REQUEST,
+    payload
+})
+
+export const GetOneEmployeeSuccess = (payload) => ({
+    type : ActionType.GETONE_EMPLOYEE_SUCCESS,
+    payload
+})
+
+export const GetOneEmployeeFailed = (payload) => ({
+    type : ActionType.GETONE_EMPLOYEE_FAILED,
+    payload
+})
+
+export const EditEmployeeRequest = (payload) => ({
+    type:ActionType.EDIT_EMPLOYEE_REQUEST,
+    payload
+})
+
+export const EditEmployeeSuccess = (payload) => ({
+    type:ActionType.EDIT_EMPLOYEE_SUCCESS,
+    payload
+})
+
+export const EditEmployeeFailed = (payload) =>({
+    type : ActionType.EDIT_EMPLOYEE_FAILED,
+    payload
+})
+
+export const EditNoEmployeeRequest = (payload) => ({
+    type:ActionType.EDITNOFILE_EMPLOYEE_REQUEST,
+    payload
+})
+
+export const EditNoEmployeeSuccess = (payload) => ({
+    type:ActionType.EDITNOFILE_EMPLOYEE_SUCCESS,
+    payload
+})
+
+export const EditNoEmployeeFailed = (payload) =>({
+    type : ActionType.EDITNOFILE_EMPLOYEE_FAILED,
+    payload
+})

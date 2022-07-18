@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useFormik } from 'formik'
+import * as Yup from 'yup'
 import { useDispatch } from 'react-redux'
 import { AddEmployeeRequest } from '../Redux-saga/Action/EmployeeAction'
 
@@ -7,6 +8,19 @@ export default function EmployeeAdd(props) {
     const dispatch = useDispatch()
     const [previewImg, setPreviewImg] = useState();
     const [uploaded, setUploaded] = useState(false);
+
+    const validationSchema = Yup.object().shape({
+        first_name: Yup.string("Enter Firstname").required("Firstname is required"),
+        last_name: Yup.string("Enter Lastname").required("Lastname is required"),
+        email: Yup.string("Enter Email").required("Email is required"),
+        phone_number: Yup.string("Enter Phone Number").required("Phone Number is required"),
+        job_id: Yup.string("Enter Job ID").required("Job ID is required"),
+        salary: Yup.string("Enter Salary").required("Salary is required"),
+        manager_id: Yup.string("Enter Manager ID").required("Manager ID is required"),
+        department_id: Yup.string("Enter Department ID").required("Department ID is required"),
+        emp_profile: Yup.string("Enter Employee Profile").required("Employee Profile is required"),
+    });
+
     const formik = useFormik({
         initialValues: {
             first_name: '',
@@ -19,6 +33,7 @@ export default function EmployeeAdd(props) {
             department_id: 0,
             emp_profile: undefined
         },
+        validationSchema : validationSchema,
         onSubmit: async (values) => {
             let payload = new FormData();
             payload.append('first_name', values.first_name)
@@ -66,8 +81,10 @@ export default function EmployeeAdd(props) {
                     value={formik.values.first_name}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
+                    onInvalid={formik.validateField}
                     autoComplete="first_name"
                 />
+                {formik.touched.first_name && formik.errors.first_name ? <span className="mt-2 text-sm text-red-600">{formik.errors.first_name}</span> : null}
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Last Name : </label>
@@ -81,6 +98,7 @@ export default function EmployeeAdd(props) {
                     onBlur={formik.handleBlur}
                     autoComplete="last_name"
                 />
+                {formik.touched.last_name && formik.errors.last_name ? <span className="mt-2 text-sm text-red-600">{formik.errors.last_name}</span> : null}
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Email : </label>
@@ -94,6 +112,7 @@ export default function EmployeeAdd(props) {
                     onBlur={formik.handleBlur}
                     autoComplete="email"
                 />
+                {formik.touched.email && formik.errors.email ? <span className="mt-2 text-sm text-red-600">{formik.errors.email}</span> : null}
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Phone Number : </label>
@@ -107,6 +126,7 @@ export default function EmployeeAdd(props) {
                     onBlur={formik.handleBlur}
                     autoComplete="phone_number"
                 />
+                {formik.touched.phone_number && formik.errors.phone_number ? <span className="mt-2 text-sm text-red-600">{formik.errors.phone_number}</span> : null}
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Job ID : </label>
@@ -120,6 +140,7 @@ export default function EmployeeAdd(props) {
                     onBlur={formik.handleBlur}
                     autoComplete="job_id"
                 />
+                {formik.touched.job_id && formik.errors.job_id ? <span className="mt-2 text-sm text-red-600">{formik.errors.job_id}</span> : null}
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Salary : </label>
@@ -133,6 +154,7 @@ export default function EmployeeAdd(props) {
                     onBlur={formik.handleBlur}
                     autoComplete="salary"
                 />
+                {formik.touched.salary && formik.errors.salary ? <span className="mt-2 text-sm text-red-600">{formik.errors.salary}</span> : null}
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Manager ID : </label>
@@ -146,6 +168,7 @@ export default function EmployeeAdd(props) {
                     onBlur={formik.handleBlur}
                     autoComplete="manager_id"
                 />
+                {formik.touched.manager_id && formik.errors.manager_id ? <span className="mt-2 text-sm text-red-600">{formik.errors.manager_id}</span> : null}
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Department ID : </label>
@@ -159,6 +182,7 @@ export default function EmployeeAdd(props) {
                     onBlur={formik.handleBlur}
                     autoComplete="department_id"
                 />
+                {formik.touched.department_id && formik.errors.department_id ? <span className="mt-2 text-sm text-red-600">{formik.errors.department_id}</span> : null}
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Profile : </label>
@@ -173,7 +197,7 @@ export default function EmployeeAdd(props) {
                                         </svg>
                                         :
                                         <>
-                                            <img src={previewImg} alt='image' />
+                                            <img crossOrigin='anonymous' src={previewImg} alt='image' />
                                             <span class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500" onClick={onClearImage}>Remove</span>
                                         </>
                                 }
@@ -186,7 +210,9 @@ export default function EmployeeAdd(props) {
                                     <p class="pl-1">or drag and drop</p>
                                 </div>
                                 <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                                {formik.touched.emp_profile && formik.errors.emp_profile ? <span className="mt-2 text-sm text-red-600">{formik.errors.emp_profile}</span> : null}
                             </div>
+                            
                         </div>
                     </div>
                 </div>
